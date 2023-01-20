@@ -1,0 +1,10 @@
+version: '3'
+services:
+  app:
+    image: azolf/bitbucket-web-api-auth-examples-ruby
+    container_name: bitbucket-web-api-auth-examples-ruby
+    ports:
+      - 8000:8000
+    environment:
+      - CLIENT_ID=YOUR_CLIENT_ID
+      - CLIENT_SECRET=YOUR_CLIENT_SECRET

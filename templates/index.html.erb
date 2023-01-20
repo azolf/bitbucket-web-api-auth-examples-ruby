@@ -1,0 +1,13 @@
+<!-- templates/index.html -->
+<!doctype html>
+<html>
+  <%= ERB.new(File.read('templates/header.html.erb')).result %>
+  <body>
+    <div class="container">
+      <div>
+        <h1>This is an example of the Authorization Code flow</h1>
+        <a href="/login" class="btn btn-primary">Log in with <%= RubyOuath.configuration.provider %></a>
+      </div>
+    </div>
+  </body>
+</html>

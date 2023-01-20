@@ -1,0 +1,55 @@
+<!-- templates/me.html -->
+<!doctype html>
+  <%= ERB.new(File.read('templates/header.html.erb')).result %>
+
+  <body>
+    <div class="container">
+      <div id="loggedin">
+        <div id="user-profile">
+        </div>
+        <div id="oauth">
+        </div>
+        <button class="btn btn-default" id="obtain-new-token">Obtain new token using the refresh token</button>
+        <div id="response">
+        </div>
+      </div>
+    </div>
+
+    <script id="user-profile-template" type="text/x-handlebars-template">
+      <h1>Logged in as {{name}}</h1>
+      <div class="media">
+        <div class="pull-left">
+          <img class="media-object" width="150" src="{{links.avatar.href}}" />
+        </div>
+        <div class="media-body">
+          <dl class="dl-horizontal">
+            <dt>Display name</dt><dd class="clearfix">{{display_name}}</dd>
+            <dt>Id</dt><dd>{{uuid}}</dd>
+            <dt>URI</dt><dd><a href="{{links.html.href}}">{{links.html.href}}</a></dd>
+            <dt>Location</dt><dd>{{location}}</dd>
+          </dl>
+        </div>
+      </div>
+    </script>
+
+    <script id="oauth-template" type="text/x-handlebars-template">
+      <h2>oAuth info</h2>
+      <dl class="dl-horizontal">
+        <dt>Access token</dt><dd class="">{{access_token}}</dd>
+        <dt>Refresh token</dt><dd class="">{{refresh_token}}</dd>
+      </dl>
+    </script>
+
+    <script id="json-response-template" type="text/x-handlebars-template">
+      <h2>Json Response</h2>
+      <pre>
+        {{json this}}
+      </pre>  
+    </script>
+
+    <script src="//cdnjs.cloudflare.com/ajax/libs/handlebars.js/2.0.0-alpha.1/handlebars.min.js"></script>
+    <script src="http://code.jquery.com/jquery-1.10.1.min.js"></script>
+    <script src="/assets/app.js"></script>
+  </body>
+</html>
+
